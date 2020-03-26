@@ -270,6 +270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 10
+  cam: {fileID: 2076751903}
 --- !u!1 &2076751901
 GameObject:
   m_ObjectHideFlags: 0

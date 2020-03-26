@@ -16,6 +16,8 @@ public class LearnMemberStatic : MonoBehaviour
     // 私人 private 僅限使類別存取：隱藏在屬性面板
     private int speed = 99;
 
+    public Camera cam;
+
     private void Start()
     {
         // 使用靜態成員
@@ -36,5 +38,10 @@ public class LearnMemberStatic : MonoBehaviour
         // 練習二：
         // 使用靜態成員 - 數學.絕對值 -999
         print(Mathf.Abs(-999));
+
+        // 靜態：類別.成員
+        print("攝影機數量：" + Camera.allCamerasCount);
+        // 非靜態：物件.成員
+        print(cam.depth);
     }
 }
