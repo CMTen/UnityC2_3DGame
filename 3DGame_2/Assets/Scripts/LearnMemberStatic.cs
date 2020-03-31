@@ -17,6 +17,11 @@ public class LearnMemberStatic : MonoBehaviour
     private int speed = 99;
 
     public Camera cam;
+    public Transform traCam;
+
+    public GameObject cube;
+    public GameObject sphere;
+    public SpriteRenderer splogo;
 
     private void Start()
     {
@@ -43,5 +48,26 @@ public class LearnMemberStatic : MonoBehaviour
         print("攝影機數量：" + Camera.allCamerasCount);
         // 非靜態：物件.成員
         print(cam.depth);
+
+        print(cube.layer);
+        print(sphere.layer);
+
+        cube.layer = 3;
+        sphere.layer = 4;
+
+        cube.SetActive(false);
+        sphere.SetActive(false);
+
+        // 隱藏滑鼠
+        Cursor.visible = false;
+
+        // 翻轉圖片
+        splogo.flipX = true;
+
+        // 旋轉物件
+        traCam.Rotate(0, 90, 0);
+
+        // 去小數點
+        print(Mathf.Floor(1.23456f));
     }
 }
