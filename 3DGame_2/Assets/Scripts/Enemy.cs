@@ -19,4 +19,40 @@ public class Enemy : MonoBehaviour
     /// 攻擊力
     /// </summary>
     public int attack { get; set; }
+
+    // public float def { get; }
+
+    public float def
+    {
+        get
+        {
+            return 77.5f;
+        }
+    }
+
+    public int lv = 5;
+
+    // 錯誤：無法在欄位指定後方使用欄位
+    // public int mp = lv * 8;
+    public int mp
+    {
+        get
+        {
+            return lv * 8;
+        }
+    }
+
+    private float _damage;
+
+    public float damage
+    {
+        set
+        {
+            _damage = Mathf.Clamp(value - def, 1, 999999);
+        }
+        get
+        {
+            return _damage;
+        }
+    }
 }
