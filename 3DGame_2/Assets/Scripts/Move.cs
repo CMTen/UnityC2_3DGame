@@ -10,7 +10,7 @@ public class Move : MonoBehaviour
     /// </summary>
     private void MoveMethod()
     {
-        transform.Translate(0, 0, -speed * Time.deltaTime);
+        transform.Translate(0, 0, -speed * Time.deltaTime, Space.World);
     }
 
     private void Update()

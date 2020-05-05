@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Dragon : MonoBehaviour
@@ -17,6 +18,10 @@ public class Dragon : MonoBehaviour
     public float speedFireBall = 300;
     [Header("攻擊力"), Range(1, 5000)]
     public float attack = 35;
+    [Header("血量"), Range(1, 1000)]
+    public float hp = 100;
+    [Header("血量")]
+    public Image hpBar;
 
     // 第一種寫法：需要欄位
     // public Transform tra;
@@ -57,7 +62,7 @@ public class Dragon : MonoBehaviour
 
         Vector3 pos = transform.position;     // 取得飛龍座標
         pos.x = Mathf.Clamp(pos.x, 30, 70);   // 數學.夾住(值, 最小, 最大)
-        pos.z = Mathf.Clamp(pos.z, 20, 30);
+        pos.z = Mathf.Clamp(pos.z, 5, 40);
         transform.position = pos;             // 飛龍座標 = 夾住座標
     }
 
@@ -93,19 +98,89 @@ public class Dragon : MonoBehaviour
 
         temp.AddComponent<Ball>();                   // 暫存火球.添加元件<球>()
         temp.GetComponent<Ball>().damage = attack;   // 暫存火球.添加元件<球>().傷害值 = 攻擊力
+        temp.GetComponent<Ball>().type = "玩家";
 
         temp.GetComponent<Rigidbody>().AddForce(0, 0, speedFireBall);
+    }
+
+    /// <summary>
+    /// 吃掉加速藥水
+    /// </summary>
+    private void EatPropCd()
+    {
+        cd -= 0.5f;
+        cd = Mathf.Clamp(cd, 0.6f, 100);
+    }
+
+    /// <summary>
+    /// 吃掉補血藥水
+    /// </summary>
+    private void EatPropHp()
+    {
+        // hp += 35;
+        // hp = Mathf.Clamp(hp, 0, 100);
+        StartCoroutine(HpBarEffect());
+    }
+
+    /// <summary>
+    /// 血條增加特效
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator HpBarEffect()
+    {
+        float hpAdd = hp + 35;
+        while (hp < hpAdd)
+        {
+            hp++;
+            hp = Mathf.Clamp(hp, 0, 100);
+            hpBar.fillAmount = hp / 100;
+            yield return null;
+        }
+    }
+
+    /// <summary>
+    /// 受傷
+    /// </summary>
+    /// <param name="damage">接收到的傷害值</param>
+    public void Damage(float damage)
+    {
+        hp -= damage;
+        hpBar.fillAmount = hp / 100;
+        if (hp <= 0) Dead();
+    }
+
+    /// <summary>
+    /// 死亡
+    /// </summary>
+    private void Dead()
+    {
+        ani.SetBool("死亡開關", true);
     }
 
     private void Start()
     {
         // 取得元件<泛型>()
         ani = GetComponent<Animator>();
+        hpBar.fillAmount = hp / 100;
     }
 
     private void Update()
     {
         Move();
         Attack();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "加速藥水")
+        {
+            EatPropCd();
+            Destroy(other.gameObject);
+        }
+        if (other.tag == "補血藥水")
+        {
+            EatPropHp();
+            Destroy(other.gameObject);
+        }
     }
 }
