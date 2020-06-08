@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6703040b6c77a264b936aa2e9f9b5c6e, type: 3}
+  m_Name: "\u95DC\u53612"
+  m_EditorClassIdentifier: 
+  spawn:
+  - name: Wave1
+    time: 1
+    monsters:
+    - monster: {fileID: 7492604251450274306, guid: 2d99fbaacf1498e48ae8d77434271f16,
+        type: 3}
+      x: 50
+    - monster: {fileID: 7492604251450274306, guid: 2d99fbaacf1498e48ae8d77434271f16,
+        type: 3}
+      x: 45
+    - monster: {fileID: 7492604251450274306, guid: 2d99fbaacf1498e48ae8d77434271f16,
+        type: 3}
+      x: 55
+    - monster: {fileID: 7492604251450274306, guid: 2d99fbaacf1498e48ae8d77434271f16,
+        type: 3}
+      x: 40
+    - monster: {fileID: 7492604251450274306, guid: 2d99fbaacf1498e48ae8d77434271f16,
+        type: 3}
+      x: 60
+  - name: Wave2
+    time: 2
+    monsters:
+    - monster: {fileID: 7492604251450274306, guid: 2d99fbaacf1498e48ae8d77434271f16,
+        type: 3}
+      x: 47.5
+    - monster: {fileID: 7492604251450274306, guid: 2d99fbaacf1498e48ae8d77434271f16,
+        type: 3}
+      x: 52.5
+  - name: Wave3
+    time: 3
+    monsters:
+    - monster: {fileID: 7492604251450274306, guid: 2d99fbaacf1498e48ae8d77434271f16,
+        type: 3}
+      x: 50
+  - name: Wave4
+    time: 8
+    monsters:
+    - monster: {fileID: 3620923802448587473, guid: 05d28cfceacac9b4bb06d8d503f199d9,
+        type: 3}
+      x: 50
+    - monster: {fileID: 3620923802448587473, guid: 05d28cfceacac9b4bb06d8d503f199d9,
+        type: 3}
+      x: 53
+    - monster: {fileID: 3620923802448587473, guid: 05d28cfceacac9b4bb06d8d503f199d9,
+        type: 3}
+      x: 47
+    - monster: {fileID: 3620923802448587473, guid: 05d28cfceacac9b4bb06d8d503f199d9,
+        type: 3}
+      x: 56
+    - monster: {fileID: 3620923802448587473, guid: 05d28cfceacac9b4bb06d8d503f199d9,
+        type: 3}
+      x: 44
+    - monster: {fileID: 3620923802448587473, guid: 05d28cfceacac9b4bb06d8d503f199d9,
+        type: 3}
+      x: 59
+    - monster: {fileID: 3620923802448587473, guid: 05d28cfceacac9b4bb06d8d503f199d9,
+        type: 3}
+      x: 41
+    - monster: {fileID: 3620923802448587473, guid: 05d28cfceacac9b4bb06d8d503f199d9,
+        type: 3}
+      x: 62
+    - monster: {fileID: 3620923802448587473, guid: 05d28cfceacac9b4bb06d8d503f199d9,
+        type: 3}
+      x: 38

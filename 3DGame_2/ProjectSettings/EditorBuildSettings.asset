@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/\u95DC\u53611.unity"
     guid: d699982eb872b3d4495a217ecf28de46
+  - enabled: 1
+    path: "Assets/\u95DC\u53612.unity"
+    guid: b46a365c981ef1646a346eea358a32b9
   m_configObjects: {}
